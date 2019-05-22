@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+.none {
+  display: none;
+}
+
+nav {
+  display: flex;
+  height: 75px;
+  position: fixed;
+  width: 100%;
+}
+nav .logo {
+  background-color: black;
+  fill: white;
+  padding: 0.2em;
+  width: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .logo svg {
+  width: 40%;
+}
+nav .search {
+  width: 94%;
+}
+nav .search span svg {
+  width: 18px;
+  height: 18px;
+  display: flex;
+}
+nav .search input {
+  width: 100%;
+  height: 100%;
+  padding: 10px 60px;
+  color: #081c24;
+  font-weight: 300;
+  font-size: 16px;
+  border: none;
+}
+
+.main {
+  display: flex;
+  padding-top: 75px;
+}
+
+.menu {
+  width: 6%;
+}
+.menu .menu-option {
+  height: 95px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #f8f8f8;
+}
+.menu .menu-option svg {
+  fill: rgba(8, 28, 36, 0.7);
+  width: 20px;
+  height: 20px;
+  margin-bottom: 5px;
+}
+.menu .menu-option a {
+  text-decoration: none;
+  color: rgba(8, 28, 36, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu .menu-option span {
+  font-size: 0.6em;
+  font-weight: 300;
+  margin-top: 5px;
+}
+
+.contenedor-pelis {
+  width: 94%;
+  background-color: #f8f8f8;
+  padding: 20px 60px;
+}
+.contenedor-pelis .titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #081c24;
+  font-weight: 300;
+}
+.contenedor-pelis .titulo h2 {
+  font-size: 18px;
+  font-weight: 300;
+}
+.contenedor-pelis .titulo p a {
+  text-decoration: none;
+}
+.contenedor-pelis .movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.contenedor-pelis .movies .pelicula {
+  text-align: center;
+  width: 200px;
+  margin: 1em;
+}
+.contenedor-pelis .movies .pelicula img {
+  width: 100%;
+}
+.contenedor-pelis .movies .pelicula p {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(8, 28, 36, 0.5);
+}
+
+#all {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
