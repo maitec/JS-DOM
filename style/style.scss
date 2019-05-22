@@ -57,6 +57,7 @@ nav{
 
 .menu{
     width: 6%;
+    position: fixed;
     .menu-option{
         height: 95px;
         display: flex;
@@ -84,10 +85,15 @@ nav{
     }
 }
 
+.activo{
+    background-color: #f8f8f8;
+}
+
 .contenedor-pelis, .nuevoContenedorPopulares{
     width: 94%;
     background-color: #f8f8f8;
     padding: 20px 60px;
+    margin-left: 91px;
     .titulo{
         display: flex;
         align-items: center;

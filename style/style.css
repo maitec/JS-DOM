@@ -58,6 +58,7 @@ nav .search input {
 
 .menu {
   width: 6%;
+  position: fixed;
 }
 .menu .menu-option {
   height: 95px;
@@ -85,10 +86,15 @@ nav .search input {
   margin-top: 5px;
 }
 
+.activo {
+  background-color: #f8f8f8;
+}
+
 .contenedor-pelis, .nuevoContenedorPopulares {
   width: 94%;
   background-color: #f8f8f8;
   padding: 20px 60px;
+  margin-left: 91px;
 }
 .contenedor-pelis .titulo, .nuevoContenedorPopulares .titulo {
   display: flex;

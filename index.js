@@ -4,9 +4,6 @@ const popular = document.querySelector('#popular');
 const topRated = document.querySelector('#top-rated');
 const upcoming = document.querySelector('#upcoming');
 const nowPlaying = document.querySelector('#now-playing');
-const title = document.querySelector('#titulo');
-const all = document.querySelector('#all');
-
 
 ///////////
 
@@ -41,6 +38,7 @@ fetch(urlPopular)
         const divMovies = document.createElement("div");
         divMovies.classList.add("movies");
         nuevoContenedorPopulares.appendChild(divMovies);
+        popular.classList.add("activo");
 
         for(let i=0; i<popularMovies.length; i++){
 
@@ -50,7 +48,6 @@ fetch(urlPopular)
     
             divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${popularMovies[i].poster_path}" alt=""> <p>${popularMovies[i].title}</p>`;
         }
-    
     }
 })
 
