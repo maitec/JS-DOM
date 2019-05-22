@@ -19,6 +19,7 @@ fetch(urlPopular)
 .then(data => {
 
     let popularMovies = data.results; 
+    let totalResultadoPopular = data.total_results;
 
     function agregarPeliculasPopular() {
         for(let i = 0; i<5; i++){
@@ -34,13 +35,18 @@ fetch(urlPopular)
 
     popular.onclick = function (){
         contenedorPelis.classList.add("none");
+        const nuevoContenedorPopulares = document.getElementById("nuevoContenedorPopulares");
+        nuevoContenedorPopulares.classList.add("block");
+        nuevoContenedorPopulares.innerHTML = `<div class="titulo"> <h2>Popular Movies</h2> <p>${totalResultadoPopular} results</p> </div>`;
+        const divMovies = document.createElement("div");
+        divMovies.classList.add("movies");
+        nuevoContenedorPopulares.appendChild(divMovies);
 
         for(let i=0; i<popularMovies.length; i++){
 
-            const nuevoContenedorPopulares = document.getElementById("#nuevoContenedorPopulares");
             const divPelicula = document.createElement("div");
             divPelicula.classList.add("pelicula");
-            nuevoContenedorPopulares.appendChild(divPelicula);
+            divMovies.appendChild(divPelicula);
     
             divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${popularMovies[i].poster_path}" alt=""> <p>${popularMovies[i].title}</p>`;
         }

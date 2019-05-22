@@ -10,6 +10,10 @@ body{
     display: none;
 }
 
+.block{
+    display: block;
+}
+
 nav{
     display: flex;
     height: 75px;
@@ -80,7 +84,7 @@ nav{
     }
 }
 
-.contenedor-pelis{
+.contenedor-pelis, .nuevoContenedorPopulares{
     width: 94%;
     background-color: #f8f8f8;
     padding: 20px 60px;
@@ -116,8 +120,4 @@ nav{
             }
         }
     }
-}
-
-#all{
-    text-decoration: none;
 }
