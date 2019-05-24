@@ -4,12 +4,14 @@ const popular = document.querySelector('#popular');
 const topRated = document.querySelector('#top-rated');
 const upcoming = document.querySelector('#upcoming');
 const nowPlaying = document.querySelector('#now-playing');
+const viewAllPopular = document.getElementById('allPopular');
 
 ///////////
 
 const apiKey = 'c5bdb3582c9d6426b28942525bb2bc0f';
+let  paginaActual = 1;
 
-const urlPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
+const urlPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`;
 
 fetch(urlPopular)
 .then(res => res.json())
@@ -30,7 +32,7 @@ fetch(urlPopular)
     }
     agregarPeliculasPopular();
 
-    popular.onclick = function (){
+    function clickEnPopular(){
         contenedorPelis.classList.add("none");
         const nuevoContenedorPopulares = document.getElementById("nuevoContenedorPopulares");
         nuevoContenedorPopulares.classList.add("block");
@@ -40,16 +42,38 @@ fetch(urlPopular)
         nuevoContenedorPopulares.appendChild(divMovies);
         popular.classList.add("activo");
 
-        for(let i=0; i<popularMovies.length; i++){
+        function crearPeliculasPopulares(popularMovies){
+            for(let i=0; i<popularMovies.length; i++){
 
-            const divPelicula = document.createElement("div");
-            divPelicula.classList.add("pelicula");
-            divMovies.appendChild(divPelicula);
-    
-            divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${popularMovies[i].poster_path}" alt=""> <p>${popularMovies[i].title}</p>`;
+                const divPelicula = document.createElement("div");
+                divPelicula.classList.add("pelicula");
+                divMovies.appendChild(divPelicula);
+        
+                divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${popularMovies[i].poster_path}" alt=""> <p>${popularMovies[i].title}</p>`;
+            }
+        }        
+        crearPeliculasPopulares(popularMovies);
+
+        const botonLoadMore = document.createElement("div");
+        botonLoadMore.innerText = "LOAD MORE";
+        botonLoadMore.classList.add("botonLoadMore");
+        nuevoContenedorPopulares.appendChild(botonLoadMore);
+        botonLoadMore.onclick = function (){
+            paginaActual+=1;
+            const urlPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`;
+            fetch(urlPopular)
+            .then(res => res.json())
+            .then(data =>{
+                crearPeliculasPopulares(data.results);
+            })
         }
     }
+    popular.onclick = clickEnPopular;
+    viewAllPopular.onclick = clickEnPopular;
 })
+
+
+
 
 urlRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`;
 

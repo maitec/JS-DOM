@@ -27,6 +27,7 @@ nav{
         display: flex;
         align-items: center;
         justify-content: center;
+        min-width: 91px;
         svg{
             width: 40%;
         }
@@ -63,6 +64,7 @@ nav{
         display: flex;
         justify-content: center;
         border: 1px solid #f8f8f8;
+        min-width: 91px;
         svg{
             fill: rgba(8,28,36,.7);
             width: 20px;
@@ -126,4 +128,21 @@ nav{
             }
         }
     }
+}
+.botonLoadMore{
+    border: 1px solid #081c24;
+    height: 20px;
+    font-weight: 300;
+    padding: 5px;
+    box-sizing: content-box;
+    font-size: 14px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.botonLoadMore:hover{
+    background-color: #081c24;
+    color: white;
+    cursor: pointer;
 }

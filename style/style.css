@@ -29,6 +29,7 @@ nav .logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 91px;
 }
 nav .logo svg {
   width: 40%;
@@ -65,6 +66,7 @@ nav .search input {
   display: flex;
   justify-content: center;
   border: 1px solid #f8f8f8;
+  min-width: 91px;
 }
 .menu .menu-option svg {
   fill: rgba(8, 28, 36, 0.7);
@@ -127,6 +129,25 @@ nav .search input {
   font-size: 14px;
   font-weight: 300;
   color: rgba(8, 28, 36, 0.5);
+}
+
+.botonLoadMore {
+  border: 1px solid #081c24;
+  height: 20px;
+  font-weight: 300;
+  padding: 5px;
+  box-sizing: content-box;
+  font-size: 14px;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.botonLoadMore:hover {
+  background-color: #081c24;
+  color: white;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
