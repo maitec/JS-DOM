@@ -92,12 +92,24 @@ const buscarPeli = (url) => {
                 function categoriaActiva(clickeada){
                     if(clickeada == "popular"){
                         popular.classList.add("activo");
+                        top_rated.classList.remove("activo");
+                        upcoming.classList.remove("activo");
+                        now_playing.classList.remove("activo");
                     }else if(clickeada == "top_rated"){
                         top_rated.classList.add("activo");
+                        popular.classList.remove("activo");
+                        upcoming.classList.remove("activo");
+                        now_playing.classList.remove("activo");
                     }else if(clickeada == "upcoming"){
                         upcoming.classList.add("activo");
+                        popular.classList.remove("activo");
+                        top_rated.classList.remove("activo");
+                        now_playing.classList.remove("activo");
                     }else if(clickeada == "now_playing"){
                         now_playing.classList.add("activo");
+                        popular.classList.remove("activo");
+                        top_rated.classList.remove("activo");
+                        upcoming.classList.remove("activo");
                     }
                 }
                 categoriaActiva(click)
