@@ -28,6 +28,9 @@ nav{
         align-items: center;
         justify-content: center;
         min-width: 91px;
+        :hover{
+            cursor: pointer;
+        }
         svg{
             width: 40%;
         }

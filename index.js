@@ -1,3 +1,6 @@
+function refreshPage(){
+    window.location.reload();
+} 
 const apiKey = 'c5bdb3582c9d6426b28942525bb2bc0f';
 let paginaActual = 1;
 

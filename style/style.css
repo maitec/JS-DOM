@@ -31,6 +31,9 @@ nav .logo {
   justify-content: center;
   min-width: 91px;
 }
+nav .logo :hover {
+  cursor: pointer;
+}
 nav .logo svg {
   width: 40%;
 }
