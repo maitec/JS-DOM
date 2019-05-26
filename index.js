@@ -27,7 +27,19 @@ popular.onclick = () => {
     titulo = "Popular Movies";
     buscarPeli(url)
 }
+viewAllPopular.onclick = () => {
+    click = "popular";
+    url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`;
+    titulo = "Popular Movies";
+    buscarPeli(url)
+}
 top_rated.onclick = () => {
+    click = "top_rated";
+    url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${paginaActual}`;
+    titulo = "Top Rated Movies";
+    buscarPeli(url)
+}
+viewAllRated.onclick = () => {
     click = "top_rated";
     url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${paginaActual}`;
     titulo = "Top Rated Movies";
@@ -39,7 +51,19 @@ upcoming.onclick = () => {
     titulo = "Upcoming Movies";
     buscarPeli(url)
 }
+viewAllUpcoming.onclick = () => {
+    click = "upcoming";
+    url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${paginaActual}`;
+    titulo = "Upcoming Movies";
+    buscarPeli(url)
+}
 now_playing.onclick = () => {
+    click = "now_playing";
+    url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${paginaActual}`;
+    titulo = "Now Playing Movies";
+    buscarPeli(url)
+}
+viewAllPlaying.onclick = () => {
     click = "now_playing";
     url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${paginaActual}`;
     titulo = "Now Playing Movies";
