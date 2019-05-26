@@ -125,9 +125,14 @@ nav .search input {
   width: 200px;
   margin: 1em;
 }
+.contenedor-pelis .movies .pelicula :hover, .nuevoContenedor .movies .pelicula :hover {
+  cursor: pointer;
+  color: #081c24;
+}
 .contenedor-pelis .movies .pelicula img, .nuevoContenedor .movies .pelicula img {
   width: 100%;
   min-height: 300px;
+  max-height: 300px;
 }
 .contenedor-pelis .movies .pelicula p, .nuevoContenedor .movies .pelicula p {
   font-size: 14px;

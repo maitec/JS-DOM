@@ -121,9 +121,14 @@ nav{
             text-align: center;
             width: 200px;
             margin: 1em;
+            :hover{
+                cursor: pointer;
+                color: #081c24;
+            }
             img{
                 width: 100%;
                 min-height: 300px;
+                max-height: 300px;
             }
             p{
                 font-size: 14px;
