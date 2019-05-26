@@ -20,6 +20,7 @@ nav {
   height: 75px;
   position: fixed;
   width: 100%;
+  z-index: 9;
 }
 nav .logo {
   background-color: black;
@@ -53,6 +54,9 @@ nav .search input {
   font-weight: 300;
   font-size: 16px;
   border: none;
+}
+nav .search :focus {
+  outline: none;
 }
 
 .main {
@@ -128,11 +132,13 @@ nav .search input {
 .contenedor-pelis .movies .pelicula :hover, .nuevoContenedor .movies .pelicula :hover {
   cursor: pointer;
   color: #081c24;
+  transform: scale(1.03);
 }
 .contenedor-pelis .movies .pelicula img, .nuevoContenedor .movies .pelicula img {
   width: 100%;
   min-height: 300px;
   max-height: 300px;
+  transition: all 0.5s;
 }
 .contenedor-pelis .movies .pelicula p, .nuevoContenedor .movies .pelicula p {
   font-size: 14px;

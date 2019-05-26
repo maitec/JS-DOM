@@ -19,6 +19,7 @@ nav{
     height: 75px;
     position: fixed;
     width: 100%;
+    z-index: 9;
     .logo{
         background-color: black;
         fill: white;
@@ -51,8 +52,11 @@ nav{
             font-size: 16px;
             border: none;
         }
+        :focus{
+            outline: none;
+        }
+        }
     }
-}
 
 .main{
     display: flex;
@@ -124,11 +128,13 @@ nav{
             :hover{
                 cursor: pointer;
                 color: #081c24;
+                transform: scale(1.03);
             }
             img{
                 width: 100%;
                 min-height: 300px;
                 max-height: 300px;
+                transition: all 0.5s;
             }
             p{
                 font-size: 14px;

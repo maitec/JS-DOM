@@ -21,9 +21,6 @@ const viewAllUpcoming = document.getElementById('allUpcoming');
 const viewAllPlaying = document.getElementById('allPlaying');
 
 const buscador = document.getElementById('search');
-// let textoBusqueda = buscador.value;
-
-// const urlBusqueda = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${textoBusqueda}&page=${paginaActual}`;
 
 let click = "";
 let url = "";
@@ -118,7 +115,6 @@ const traerPeliculas = (url) => {
                 }
             }
             categoriaActiva(click)
-
 
             function mostrarTodasLasPeliculas(fetchResult) {
                 for (let i = 0; i < fetchResult.length; i++) {
@@ -279,7 +275,6 @@ buscador.addEventListener('keypress', function (event) {
                             mostrarTodasLasPeliculas(data.results);
                         })
                 }
-
             })
     }
 })
