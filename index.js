@@ -127,7 +127,11 @@ const traerPeliculas = (url) => {
                     divPelicula.classList.add("pelicula");
                     divMovies.appendChild(divPelicula);
 
-                    divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${fetchResult[i].poster_path}" alt=""> <p>${fetchResult[i].title}</p>`;
+                    if (fetchResult[i].poster_path == null) {
+                        divPelicula.innerHTML = `<img src="assets/no-image.png" alt=""> <p>${fetchResult[i].title}</p>`;
+                    } else {
+                        divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${fetchResult[i].poster_path}" alt=""> <p>${fetchResult[i].title}</p>`;
+                    }
                 }
             }
             mostrarTodasLasPeliculas(resultadoFetch);
@@ -238,9 +242,7 @@ buscador.addEventListener('keypress', function (event) {
             .then(data => {
                 let resultadoFetch = data.results;
                 let totalDeResultadosFetch = data.total_results;
-                console.log(resultadoFetch);
-                // const peliculasFiltradas = resultadoBusqueda.filter(movie => movie.title === textoBusqueda);
-                // console.log(peliculasFiltradas)
+
                 contenedorPelis.classList.add("none");
                 const nuevoContenedor = document.getElementById("nuevoContenedor");
                 nuevoContenedor.classList.add("block");
@@ -251,14 +253,15 @@ buscador.addEventListener('keypress', function (event) {
 
                 function mostrarTodasLasPeliculas(fetchResult) {
                     for (let i = 0; i < fetchResult.length; i++) {
-    
+
                         const divPelicula = document.createElement("div");
                         divPelicula.classList.add("pelicula");
                         divMovies.appendChild(divPelicula);
-                        if(fetchResult[i].poster_path == null){
-                            fetchResult[i].poster_path = "no-image.png";
+                        if (fetchResult[i].poster_path == null) {
+                            divPelicula.innerHTML = `<img src="assets/no-image.png" alt=""> <p>${fetchResult[i].title}</p>`;
+                        } else {
+                            divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${fetchResult[i].poster_path}" alt=""> <p>${fetchResult[i].title}</p>`;
                         }
-                        divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${fetchResult[i].poster_path}" alt=""> <p>${fetchResult[i].title}</p>`;
                     }
                 }
                 mostrarTodasLasPeliculas(resultadoFetch);
@@ -280,3 +283,5 @@ buscador.addEventListener('keypress', function (event) {
             })
     }
 })
+
+///////////////////////////////////////////////////FIN BUSCADOR///////////////////////////////////////////
