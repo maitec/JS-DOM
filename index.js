@@ -230,6 +230,7 @@ fetch(urlPlaying)
 
 buscador.addEventListener('keypress', function (event) {
     if (event.keyCode === 13) {
+        paginaActual = 1;
         let textoBusqueda = buscador.value;
         const urlBusqueda = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${textoBusqueda}&page=${paginaActual}`;
 
@@ -280,3 +281,6 @@ buscador.addEventListener('keypress', function (event) {
 })
 
 ///////////////////////////////////////////////////FIN BUSCADOR///////////////////////////////////////////
+
+///////////////////////////////////////////////////MODAL/////////////////////////////////////////////////
+
