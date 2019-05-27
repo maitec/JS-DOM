@@ -178,35 +178,46 @@ nav{
         width: 50%;
         height: 80vh;
         display: flex;
-        .fondo{
-
-        }
-        .poster img{
-            height: 90%;
-            margin: 40px 20px 0px 40px;
-        }
+        flex-direction: column;
         .dataPelicula{
-            padding: 30px 30px 30px 40px;
-            h1{
-                color: #bc3b69;
-                font-size: 30px;
-                font-weight: 500;
-                line-height: 1.4;
+            //padding: 30px 40px 30px 40px;
+            height: 50%;
+            background-image: url("https://image.tmdb.org/t/p/w500/9cPMIuB2tv4IP0LbeNhrK5OyDy5.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            .poster img{
+                // height: 80vh;
+                margin: 30px;
+                max-width:200px;
             }
-            span{
-                font-size: 14px;
-                font-weight: 300;
-                color: hsla(0,0%,100%,.7);
-                margin-top: 10px;
+            .titulos{
+                display: flex;
+                flex-direction: column;
+                align-self: flex-end;
+                h1{
+                    color: #bc3b69;
+                    font-size: 30px;
+                    font-weight: 500;
+                    line-height: 1.4;
+                }
+                span{
+                    font-size: 14px;
+                    font-weight: 300;
+                    color: hsla(0,0%,100%,.7);
+                }
             }
         }
         .descripcion{
-            padding: 30px 30px 30px 40px;
+            //padding: 30px 40px 30px 40px;
+            display: flex;
+            flex-direction: column;
+            //width: 50%;
+            align-self: flex-end;
             p{
                 font-size: 14px;
                 font-weight: 300;
                 line-height: 1.8;
-                margin-bottom: 30px;
             }
             h2{
                 font-size: 16px;

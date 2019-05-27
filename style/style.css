@@ -182,34 +182,44 @@ nav .search :focus {
   width: 50%;
   height: 80vh;
   display: flex;
-}
-#modalWrapper .modalContainer .poster img {
-  height: 90%;
-  margin: 40px 20px 0px 40px;
+  flex-direction: column;
 }
 #modalWrapper .modalContainer .dataPelicula {
-  padding: 30px 30px 30px 40px;
+  height: 50%;
+  background-image: url("https://image.tmdb.org/t/p/w500/9cPMIuB2tv4IP0LbeNhrK5OyDy5.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
 }
-#modalWrapper .modalContainer .dataPelicula h1 {
+#modalWrapper .modalContainer .dataPelicula .poster img {
+  margin: 30px;
+  max-width: 200px;
+}
+#modalWrapper .modalContainer .dataPelicula .titulos {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
+#modalWrapper .modalContainer .dataPelicula .titulos h1 {
   color: #bc3b69;
   font-size: 30px;
   font-weight: 500;
   line-height: 1.4;
 }
-#modalWrapper .modalContainer .dataPelicula span {
+#modalWrapper .modalContainer .dataPelicula .titulos span {
   font-size: 14px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.7);
-  margin-top: 10px;
 }
 #modalWrapper .modalContainer .descripcion {
-  padding: 30px 30px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
 }
 #modalWrapper .modalContainer .descripcion p {
   font-size: 14px;
   font-weight: 300;
   line-height: 1.8;
-  margin-bottom: 30px;
 }
 #modalWrapper .modalContainer .descripcion h2 {
   font-size: 16px;
