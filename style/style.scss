@@ -181,15 +181,14 @@ nav{
         flex-direction: column;
         overflow: auto;
         .dataPelicula{
-            //padding: 30px 40px 30px 40px;
             height: 50%;
             background-image: url("https://image.tmdb.org/t/p/w500/9cPMIuB2tv4IP0LbeNhrK5OyDy5.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
             .poster img{
-                position: relative;
-                top: 20px;
+                position: absolute;
+                top: 80px;
                 margin: 35px;
                 height: 60vh;
             }
@@ -197,6 +196,8 @@ nav{
                 display: flex;
                 flex-direction: column;
                 align-self: center;
+                margin-left: 45%;
+                margin-right: 35px;
                 h1{
                     color: #bc3b69;
                     font-size: 30px;
@@ -211,11 +212,10 @@ nav{
             }
         }
         .descripcion{
-            //padding: 30px 40px 30px 40px;
             display: flex;
             flex-direction: column;
-            //width: 50%;
             align-self: flex-end;
+            margin: 20px 35px;
             margin-left: 45%;
             p{
                 font-size: 14px;

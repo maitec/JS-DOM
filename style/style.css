@@ -193,8 +193,8 @@ nav .search :focus {
   display: flex;
 }
 #modalWrapper .modalContainer .dataPelicula .poster img {
-  position: relative;
-  top: 20px;
+  position: absolute;
+  top: 80px;
   margin: 35px;
   height: 60vh;
 }
@@ -202,6 +202,8 @@ nav .search :focus {
   display: flex;
   flex-direction: column;
   align-self: center;
+  margin-left: 45%;
+  margin-right: 35px;
 }
 #modalWrapper .modalContainer .dataPelicula .titulos h1 {
   color: #bc3b69;
@@ -218,6 +220,7 @@ nav .search :focus {
   display: flex;
   flex-direction: column;
   align-self: flex-end;
+  margin: 20px 35px;
   margin-left: 45%;
 }
 #modalWrapper .modalContainer .descripcion p {
