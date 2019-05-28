@@ -187,17 +187,16 @@ nav{
             background-repeat: no-repeat;
             display: flex;
             .poster img{
-                position: absolute;
-                top: 80px;
-                margin: 35px;
-                height: 60vh;
+                display: flex;
+                margin-top: 35px;
+                margin-left: 35px;
+                width: 70%;
             }
             .titulos{
+                //width: 50%;
                 display: flex;
                 flex-direction: column;
                 align-self: center;
-                margin-left: 45%;
-                margin-right: 35px;
                 h1{
                     color: #bc3b69;
                     font-size: 30px;
@@ -215,8 +214,8 @@ nav{
             display: flex;
             flex-direction: column;
             align-self: flex-end;
+            width: 50%;
             margin: 20px 35px;
-            margin-left: 45%;
             p{
                 font-size: 14px;
                 font-weight: 300;
