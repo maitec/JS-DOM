@@ -5,6 +5,7 @@
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
+  overflow: hidden;
 }
 
 .none {
@@ -172,18 +173,18 @@ nav .search :focus {
   background: rgba(8, 28, 36, 0.98);
   display: flex;
   justify-content: center;
-  align-items: center;
   z-index: 10;
   top: 0;
   left: 0;
+  overflow: auto;
 }
 #modalWrapper .modalContainer {
   background-color: #fff;
   width: 50%;
-  height: 80vh;
+  height: 100vh;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
-  overflow: auto;
 }
 #modalWrapper .modalContainer .dataPelicula {
   height: 50%;
@@ -192,16 +193,20 @@ nav .search :focus {
   background-repeat: no-repeat;
   display: flex;
 }
+#modalWrapper .modalContainer .dataPelicula .poster {
+  width: 350px;
+  margin: 20px 40px;
+}
 #modalWrapper .modalContainer .dataPelicula .poster img {
-  display: flex;
-  margin-top: 35px;
-  margin-left: 35px;
-  width: 70%;
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
 }
 #modalWrapper .modalContainer .dataPelicula .titulos {
   display: flex;
   flex-direction: column;
   align-self: center;
+  margin: 10px;
 }
 #modalWrapper .modalContainer .dataPelicula .titulos h1 {
   color: #bc3b69;
@@ -219,7 +224,7 @@ nav .search :focus {
   flex-direction: column;
   align-self: flex-end;
   width: 50%;
-  margin: 20px 35px;
+  margin: 20px 40px;
 }
 #modalWrapper .modalContainer .descripcion p {
   font-size: 14px;

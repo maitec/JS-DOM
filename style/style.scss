@@ -4,6 +4,7 @@
 body{
     margin: 0;
     font-family: Roboto,sans-serif;
+    overflow: hidden;//poner en js unicamente cuando se abre el modal
 }
 
 .none{
@@ -169,34 +170,39 @@ nav{
     background: rgba(8,28,36,.98);
     display: flex;
     justify-content: center;
-    align-items: center;
     z-index: 10;
     top: 0;
     left: 0;
+    overflow: auto;
     .modalContainer{
         background-color: #fff;
         width: 50%;
-        height: 80vh;
+        height: 100vh;
+        margin: 40px auto;
         display: flex;
         flex-direction: column;
-        overflow: auto;
+        // overflow: auto;
         .dataPelicula{
             height: 50%;
             background-image: url("https://image.tmdb.org/t/p/w500/9cPMIuB2tv4IP0LbeNhrK5OyDy5.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
-            .poster img{
-                display: flex;
-                margin-top: 35px;
-                margin-left: 35px;
-                width: 70%;
+            .poster{
+                width: 350px;
+                margin: 20px 40px;
+                img{
+                    width: 100%;
+                    height: auto;
+                    margin-top: 50px;
+                }
             }
             .titulos{
                 //width: 50%;
                 display: flex;
                 flex-direction: column;
                 align-self: center;
+                margin: 10px;
                 h1{
                     color: #bc3b69;
                     font-size: 30px;
@@ -215,7 +221,7 @@ nav{
             flex-direction: column;
             align-self: flex-end;
             width: 50%;
-            margin: 20px 35px;
+            margin: 20px 40px;
             p{
                 font-size: 14px;
                 font-weight: 300;
