@@ -136,36 +136,53 @@ const traerPeliculas = (url) => {
                         console.log("el nombre de la pelicula clickeada es ", fetchResult[i].title);
                         console.log("el id de la pelicula clickeada es ", idPelicula);
 
-                        modal.classList.remove("none");
-                        document.querySelector('body').style.overflow = 'hidden';
+                        const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
 
-                        modal.innerHTML = `
-                        <div class="modalContainer">
-                            <div id="cerrar">X</div>
-                            <header>
-                                <div class="poster">
-                                     <img src="assets/wmMq5ypRNJbWpdhC9aPjpdx1MMp.jpg" alt="">
-                                </div>
-                                <div class="titulos">
-                                    <h1>Asterix: The Secret of the Magic Potion</h1>
-                                    <span>Keep it to yourself</span>
-                                </div>
-                            </header>
-                            <div class="textos">
-                                <div class="vacio"></div>
-                                <div class="descripcion">
-                                    <p>Following a fall during mistletoe picking, Druid Getafix decides that it is time to secure the
-                                    future of the village. Accompanied by Asterix and Obelix, he undertakes to travel the Gallic
-                                    world in search of a talented young druid to transmit the Secret of the Magic Potion.
-                                    </p>
-                                    <h2>GENRES</h2>
-                                    <p>Animation, Family, Comedy, Adventure</p>
-                                    <h2>RELEASE DATE</h2>
-                                    <p>05 Dec 2018</p>
+                        fetch(urlPelicula)
+                            .then(res => res.json())
+                            .then(data => {
+
+                                const dataPeliculas = data;
+                                const generosPeliculas = data.genres.map(g => g.name).join(', ');
+
+                                modal.classList.remove("none");
+                                modal.classList.add("modalWrapper");
+                                document.querySelector('body').style.overflow = 'hidden';
+
+                                modal.innerHTML = `
+                            <div class="modalContainer">
+                                <div id="cerrar">X</div>
+                                <header>
+                                    <div class="poster">
+                                         <img src="https://image.tmdb.org/t/p/original${dataPeliculas.poster_path}" alt="">
+                                    </div>
+                                    <div class="titulos">
+                                        <h1>${dataPeliculas.title}</h1>
+                                        <span>${dataPeliculas.tagline}</span>
+                                    </div>
+                                </header>
+                                <div class="textos">
+                                    <div class="vacio"></div>
+                                    <div class="descripcion">
+                                        <p>${dataPeliculas.overview}</p>
+                                        <h2>GENRES</h2>
+                                        <p>${generosPeliculas}</p>
+                                        <h2>RELEASE DATE</h2>
+                                        <p>${dataPeliculas.release_date}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        `
+                            `
+                                document.querySelector('#modalWrapper .modalContainer header').style.backgroundImage = `url(https://image.tmdb.org/t/p/original${dataPeliculas.backdrop_path})`;
+
+                                const botonCerrar = document.getElementById('cerrar');
+
+                                botonCerrar.onclick = function () {
+                                    modal.classList.remove("modalWrapper");
+                                    modal.classList.add("none");
+                                    document.querySelector('body').style.overflow = 'visible';
+                                }
+                            })
                     }
                 }
             }
@@ -203,6 +220,60 @@ fetch(urlPopular)
                 divCincoPeliculas.appendChild(divPelicula);
 
                 divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${resultadoFetch[i].poster_path}" alt=""> <p>${resultadoFetch[i].title}</p>`;
+
+                divPelicula.onclick = function () {
+                    const idPelicula = resultadoFetch[i].id;
+                    console.log("el nombre de la pelicula clickeada es ", resultadoFetch[i].title);
+                    console.log("el id de la pelicula clickeada es ", idPelicula);
+
+                    const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
+
+                    fetch(urlPelicula)
+                        .then(res => res.json())
+                        .then(data => {
+
+                            const dataPeliculas = data;
+                            const generosPeliculas = data.genres.map(g => g.name).join(', ');
+
+                            modal.classList.remove("none");
+                            modal.classList.add("modalWrapper");
+                            document.querySelector('body').style.overflow = 'hidden';
+
+                            modal.innerHTML = `
+                        <div class="modalContainer">
+                            <div id="cerrar">X</div>
+                            <header>
+                                <div class="poster">
+                                     <img src="https://image.tmdb.org/t/p/original${dataPeliculas.poster_path}" alt="">
+                                </div>
+                                <div class="titulos">
+                                    <h1>${dataPeliculas.title}</h1>
+                                    <span>${dataPeliculas.tagline}</span>
+                                </div>
+                            </header>
+                            <div class="textos">
+                                <div class="vacio"></div>
+                                <div class="descripcion">
+                                    <p>${dataPeliculas.overview}</p>
+                                    <h2>GENRES</h2>
+                                    <p>${generosPeliculas}</p>
+                                    <h2>RELEASE DATE</h2>
+                                    <p>${dataPeliculas.release_date}</p>
+                                </div>
+                            </div>
+                        </div>
+                        `
+                            document.querySelector('#modalWrapper .modalContainer header').style.backgroundImage = `url(https://image.tmdb.org/t/p/original${dataPeliculas.backdrop_path})`;
+
+                            const botonCerrar = document.getElementById('cerrar');
+
+                            botonCerrar.onclick = function () {
+                                modal.classList.remove("modalWrapper");
+                                modal.classList.add("none");
+                                document.querySelector('body').style.overflow = 'visible';
+                            }
+                        })
+                }
             }
         }
         agregarPeliculasInicio();
@@ -221,6 +292,60 @@ fetch(urlRated)
                 divCincoPeliculas.appendChild(divPelicula);
 
                 divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${resultadoFetch[i].poster_path}" alt=""> <p>${resultadoFetch[i].title}</p>`;
+
+                divPelicula.onclick = function () {
+                    const idPelicula = resultadoFetch[i].id;
+                    console.log("el nombre de la pelicula clickeada es ", resultadoFetch[i].title);
+                    console.log("el id de la pelicula clickeada es ", idPelicula);
+
+                    const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
+
+                    fetch(urlPelicula)
+                        .then(res => res.json())
+                        .then(data => {
+
+                            const dataPeliculas = data;
+                            const generosPeliculas = data.genres.map(g => g.name).join(', ');
+
+                            modal.classList.remove("none");
+                            modal.classList.add("modalWrapper");
+                            document.querySelector('body').style.overflow = 'hidden';
+
+                            modal.innerHTML = `
+                        <div class="modalContainer">
+                            <div id="cerrar">X</div>
+                            <header>
+                                <div class="poster">
+                                     <img src="https://image.tmdb.org/t/p/original${dataPeliculas.poster_path}" alt="">
+                                </div>
+                                <div class="titulos">
+                                    <h1>${dataPeliculas.title}</h1>
+                                    <span>${dataPeliculas.tagline}</span>
+                                </div>
+                            </header>
+                            <div class="textos">
+                                <div class="vacio"></div>
+                                <div class="descripcion">
+                                    <p>${dataPeliculas.overview}</p>
+                                    <h2>GENRES</h2>
+                                    <p>${generosPeliculas}</p>
+                                    <h2>RELEASE DATE</h2>
+                                    <p>${dataPeliculas.release_date}</p>
+                                </div>
+                            </div>
+                        </div>
+                        `
+                            document.querySelector('#modalWrapper .modalContainer header').style.backgroundImage = `url(https://image.tmdb.org/t/p/original${dataPeliculas.backdrop_path})`;
+
+                            const botonCerrar = document.getElementById('cerrar');
+
+                            botonCerrar.onclick = function () {
+                                modal.classList.remove("modalWrapper");
+                                modal.classList.add("none");
+                                document.querySelector('body').style.overflow = 'visible';
+                            }
+                        })
+                }
             }
         }
         agregarPeliculasInicio();
@@ -239,6 +364,60 @@ fetch(urlUpcoming)
                 divCincoPeliculas.appendChild(divPelicula);
 
                 divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${resultadoFetch[i].poster_path}" alt=""> <p>${resultadoFetch[i].title}</p>`;
+
+                divPelicula.onclick = function () {
+                    const idPelicula = resultadoFetch[i].id;
+                    console.log("el nombre de la pelicula clickeada es ", resultadoFetch[i].title);
+                    console.log("el id de la pelicula clickeada es ", idPelicula);
+
+                    const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
+
+                    fetch(urlPelicula)
+                        .then(res => res.json())
+                        .then(data => {
+
+                            const dataPeliculas = data;
+                            const generosPeliculas = data.genres.map(g => g.name).join(', ');
+
+                            modal.classList.remove("none");
+                            modal.classList.add("modalWrapper");
+                            document.querySelector('body').style.overflow = 'hidden';
+
+                            modal.innerHTML = `
+                        <div class="modalContainer">
+                            <div id="cerrar">X</div>
+                            <header>
+                                <div class="poster">
+                                     <img src="https://image.tmdb.org/t/p/original${dataPeliculas.poster_path}" alt="">
+                                </div>
+                                <div class="titulos">
+                                    <h1>${dataPeliculas.title}</h1>
+                                    <span>${dataPeliculas.tagline}</span>
+                                </div>
+                            </header>
+                            <div class="textos">
+                                <div class="vacio"></div>
+                                <div class="descripcion">
+                                    <p>${dataPeliculas.overview}</p>
+                                    <h2>GENRES</h2>
+                                    <p>${generosPeliculas}</p>
+                                    <h2>RELEASE DATE</h2>
+                                    <p>${dataPeliculas.release_date}</p>
+                                </div>
+                            </div>
+                        </div>
+                        `
+                            document.querySelector('#modalWrapper .modalContainer header').style.backgroundImage = `url(https://image.tmdb.org/t/p/original${dataPeliculas.backdrop_path})`;
+
+                            const botonCerrar = document.getElementById('cerrar');
+
+                            botonCerrar.onclick = function () {
+                                modal.classList.remove("modalWrapper");
+                                modal.classList.add("none");
+                                document.querySelector('body').style.overflow = 'visible';
+                            }
+                        })
+                }
             }
         }
         agregarPeliculasInicio();
@@ -257,6 +436,60 @@ fetch(urlPlaying)
                 divCincoPeliculas.appendChild(divPelicula);
 
                 divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${resultadoFetch[i].poster_path}" alt=""> <p>${resultadoFetch[i].title}</p>`;
+                divPelicula.onclick = function () {
+                    const idPelicula = resultadoFetch[i].id;
+                    console.log("el nombre de la pelicula clickeada es ", resultadoFetch[i].title);
+                    console.log("el id de la pelicula clickeada es ", idPelicula);
+
+                    const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
+
+                    fetch(urlPelicula)
+                        .then(res => res.json())
+                        .then(data => {
+
+                            const dataPeliculas = data;
+                            const generosPeliculas = data.genres.map(g => g.name).join(', ');
+
+                            modal.classList.remove("none");
+                            modal.classList.add("modalWrapper");
+                            document.querySelector('body').style.overflow = 'hidden';
+
+                            modal.innerHTML = `
+                        <div class="modalContainer">
+                            <div id="cerrar">X</div>
+                            <header>
+                                <div class="poster">
+                                     <img src="https://image.tmdb.org/t/p/original${dataPeliculas.poster_path}" alt="">
+                                </div>
+                                <div class="titulos">
+                                    <h1>${dataPeliculas.title}</h1>
+                                    <span>${dataPeliculas.tagline}</span>
+                                </div>
+                            </header>
+                            <div class="textos">
+                                <div class="vacio"></div>
+                                <div class="descripcion">
+                                    <p>${dataPeliculas.overview}</p>
+                                    <h2>GENRES</h2>
+                                    <p>${generosPeliculas}</p>
+                                    <h2>RELEASE DATE</h2>
+                                    <p>${dataPeliculas.release_date}</p>
+                                </div>
+                            </div>
+                        </div>
+                        `
+                            document.querySelector('#modalWrapper .modalContainer header').style.backgroundImage = `url(https://image.tmdb.org/t/p/original${dataPeliculas.backdrop_path})`;
+
+                            const botonCerrar = document.getElementById('cerrar');
+
+                            botonCerrar.onclick = function () {
+                                modal.classList.remove("modalWrapper");
+                                modal.classList.add("none");
+                                document.querySelector('body').style.overflow = 'visible';
+                            }
+                        })
+                }
+                
             }
         }
         agregarPeliculasInicio();
@@ -298,6 +531,59 @@ buscador.addEventListener('keypress', function (event) {
                         } else {
                             divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${fetchResult[i].poster_path}" alt=""> <p>${fetchResult[i].title}</p>`;
                         }
+                        divPelicula.onclick = function () {
+                            const idPelicula = fetchResult[i].id;
+                            console.log("el nombre de la pelicula clickeada es ", fetchResult[i].title);
+                            console.log("el id de la pelicula clickeada es ", idPelicula);
+
+                            const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
+
+                            fetch(urlPelicula)
+                                .then(res => res.json())
+                                .then(data => {
+
+                                    const dataPeliculas = data;
+                                    const generosPeliculas = data.genres.map(g => g.name).join(', ');
+
+                                    modal.classList.remove("none");
+                                    modal.classList.add("modalWrapper");
+                                    document.querySelector('body').style.overflow = 'hidden';
+
+                                    modal.innerHTML = `
+                                <div class="modalContainer">
+                                    <div id="cerrar">X</div>
+                                    <header>
+                                        <div class="poster">
+                                             <img src="https://image.tmdb.org/t/p/original${dataPeliculas.poster_path}" alt="">
+                                        </div>
+                                        <div class="titulos">
+                                            <h1>${dataPeliculas.title}</h1>
+                                            <span>${dataPeliculas.tagline}</span>
+                                        </div>
+                                    </header>
+                                    <div class="textos">
+                                        <div class="vacio"></div>
+                                        <div class="descripcion">
+                                            <p>${dataPeliculas.overview}</p>
+                                            <h2>GENRES</h2>
+                                            <p>${generosPeliculas}</p>
+                                            <h2>RELEASE DATE</h2>
+                                            <p>${dataPeliculas.release_date}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                `
+                                    document.querySelector('#modalWrapper .modalContainer header').style.backgroundImage = `url(https://image.tmdb.org/t/p/original${dataPeliculas.backdrop_path})`;
+
+                                    const botonCerrar = document.getElementById('cerrar');
+
+                                    botonCerrar.onclick = function () {
+                                        modal.classList.remove("modalWrapper");
+                                        modal.classList.add("none");
+                                        document.querySelector('body').style.overflow = 'visible';
+                                    }
+                                })
+                        }
                     }
                 }
                 mostrarTodasLasPeliculas(resultadoFetch);
@@ -320,6 +606,3 @@ buscador.addEventListener('keypress', function (event) {
 })
 
 ///////////////////////////////////////////////////FIN BUSCADOR///////////////////////////////////////////
-
-///////////////////////////////////////////////////MODAL/////////////////////////////////////////////////
-

@@ -177,6 +177,7 @@ nav{
     .modalContainer{
         width: 50%;
         min-width: 500px;
+        max-height: 100%;
         margin: 40px auto;
         position: relative;
         #cerrar{
@@ -198,7 +199,7 @@ nav{
         header{
             display: flex;
             height: 40vh;
-            background-image: url("https://image.tmdb.org/t/p/w500/9cPMIuB2tv4IP0LbeNhrK5OyDy5.jpg");
+            //background-image: url("https://image.tmdb.org/t/p/w500/9cPMIuB2tv4IP0LbeNhrK5OyDy5.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50% 50%;
@@ -206,6 +207,7 @@ nav{
                 width: 40%;
                 padding: 20px;
                 img{
+                    margin-top: 2em;
                     max-width: 100%;//si el div contenedor mide X px, la imagen va a medir como maximo esa medida. no sobrepasa la medida
                     height: auto;
                 }
