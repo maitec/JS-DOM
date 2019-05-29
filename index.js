@@ -22,6 +22,8 @@ const viewAllPlaying = document.getElementById('allPlaying');
 
 const buscador = document.getElementById('search');
 
+const modal = document.getElementById('modalWrapper');
+
 let click = "";
 let url = "";
 let titulo = "";
@@ -127,6 +129,43 @@ const traerPeliculas = (url) => {
                         divPelicula.innerHTML = `<img src="assets/no-image.png" alt=""> <p>${fetchResult[i].title}</p>`;
                     } else {
                         divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${fetchResult[i].poster_path}" alt=""> <p>${fetchResult[i].title}</p>`;
+                    }
+
+                    divPelicula.onclick = function () {
+                        const idPelicula = fetchResult[i].id;
+                        console.log("el nombre de la pelicula clickeada es ", fetchResult[i].title);
+                        console.log("el id de la pelicula clickeada es ", idPelicula);
+
+                        modal.classList.remove("none");
+                        document.querySelector('body').style.overflow = 'hidden';
+
+                        modal.innerHTML = `
+                        <div class="modalContainer">
+                            <div id="cerrar">X</div>
+                            <header>
+                                <div class="poster">
+                                     <img src="assets/wmMq5ypRNJbWpdhC9aPjpdx1MMp.jpg" alt="">
+                                </div>
+                                <div class="titulos">
+                                    <h1>Asterix: The Secret of the Magic Potion</h1>
+                                    <span>Keep it to yourself</span>
+                                </div>
+                            </header>
+                            <div class="textos">
+                                <div class="vacio"></div>
+                                <div class="descripcion">
+                                    <p>Following a fall during mistletoe picking, Druid Getafix decides that it is time to secure the
+                                    future of the village. Accompanied by Asterix and Obelix, he undertakes to travel the Gallic
+                                    world in search of a talented young druid to transmit the Secret of the Magic Potion.
+                                    </p>
+                                    <h2>GENRES</h2>
+                                    <p>Animation, Family, Comedy, Adventure</p>
+                                    <h2>RELEASE DATE</h2>
+                                    <p>05 Dec 2018</p>
+                                </div>
+                            </div>
+                        </div>
+                        `
                     }
                 }
             }
