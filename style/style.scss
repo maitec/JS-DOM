@@ -163,45 +163,59 @@ nav{
     cursor: pointer;
 }
 
-#modalWrapper{
+.modalWrapper{
     position: fixed;
     width: 100%;
     height: 100%;
     background: rgba(8,28,36,.98);
     display: flex;
-    justify-content: center;
+    align-items: center;
     z-index: 10;
     top: 0;
     left: 0;
     overflow: auto;
     .modalContainer{
-        background-color: #fff;
         width: 50%;
-        height: 100%;
+        min-width: 500px;
         margin: 40px auto;
-        display: flex;
-        flex-direction: column;
-        //overflow: auto;
-        .dataPelicula{
-            height: 40%;
+        position: relative;
+        #cerrar{
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 5px;
+            z-index: 100;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            :hover{
+                background: #bc3b69;
+            }
+        }
+        header{
+            display: flex;
+            height: 40vh;
             background-image: url("https://image.tmdb.org/t/p/w500/9cPMIuB2tv4IP0LbeNhrK5OyDy5.jpg");
             background-size: cover;
             background-repeat: no-repeat;
-            display: flex;
+            background-position: 50% 50%;
             .poster{
-                width: 350px;
-                margin: 20px 40px;
+                width: 40%;
+                padding: 20px;
                 img{
-                    width: 100%;
+                    max-width: 100%;//si el div contenedor mide X px, la imagen va a medir como maximo esa medida. no sobrepasa la medida
                     height: auto;
-                    margin-top: 50px;
                 }
             }
             .titulos{
+                width: 60%;
                 display: flex;
-                flex-direction: column;
                 align-self: center;
-                margin: 10px;
+                flex-direction: column;
+                padding: 40px 40px 40px 0px;
                 h1{
                     color: #bc3b69;
                     font-size: 30px;
@@ -215,21 +229,25 @@ nav{
                 }
             }
         }
-        .descripcion{
+        .textos{
             display: flex;
-            flex-direction: column;
-            align-self: flex-end;
-            width: 50%;
-            margin: 20px 40px;
-            p{
-                font-size: 14px;
-                font-weight: 300;
-                line-height: 1.8;
+            background-color: #fff;
+            padding: 40px;
+            .vacio{
+                width: 40%;
             }
-            h2{
-                font-size: 16px;
-                color: #bc3b69;
-                font-weight: 400;
+            .descripcion{
+                width: 60%;
+                p{
+                    font-size: 14px;
+                    font-weight: 300;
+                    line-height: 1.8;
+                }
+                h2{
+                    font-size: 16px;
+                    color: #bc3b69;
+                    font-weight: 400;
+                }
             }
         }
     }
