@@ -133,8 +133,6 @@ const traerPeliculas = (url) => {
 
                     divPelicula.onclick = function () {
                         const idPelicula = fetchResult[i].id;
-                        console.log("el nombre de la pelicula clickeada es ", fetchResult[i].title);
-                        console.log("el id de la pelicula clickeada es ", idPelicula);
 
                         const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
 
@@ -223,8 +221,6 @@ fetch(urlPopular)
 
                 divPelicula.onclick = function () {
                     const idPelicula = resultadoFetch[i].id;
-                    console.log("el nombre de la pelicula clickeada es ", resultadoFetch[i].title);
-                    console.log("el id de la pelicula clickeada es ", idPelicula);
 
                     const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
 
@@ -295,8 +291,6 @@ fetch(urlRated)
 
                 divPelicula.onclick = function () {
                     const idPelicula = resultadoFetch[i].id;
-                    console.log("el nombre de la pelicula clickeada es ", resultadoFetch[i].title);
-                    console.log("el id de la pelicula clickeada es ", idPelicula);
 
                     const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
 
@@ -367,8 +361,6 @@ fetch(urlUpcoming)
 
                 divPelicula.onclick = function () {
                     const idPelicula = resultadoFetch[i].id;
-                    console.log("el nombre de la pelicula clickeada es ", resultadoFetch[i].title);
-                    console.log("el id de la pelicula clickeada es ", idPelicula);
 
                     const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
 
@@ -438,8 +430,6 @@ fetch(urlPlaying)
                 divPelicula.innerHTML = `<img src="https://image.tmdb.org/t/p/original${resultadoFetch[i].poster_path}" alt=""> <p>${resultadoFetch[i].title}</p>`;
                 divPelicula.onclick = function () {
                     const idPelicula = resultadoFetch[i].id;
-                    console.log("el nombre de la pelicula clickeada es ", resultadoFetch[i].title);
-                    console.log("el id de la pelicula clickeada es ", idPelicula);
 
                     const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
 
@@ -533,8 +523,6 @@ buscador.addEventListener('keypress', function (event) {
                         }
                         divPelicula.onclick = function () {
                             const idPelicula = fetchResult[i].id;
-                            console.log("el nombre de la pelicula clickeada es ", fetchResult[i].title);
-                            console.log("el id de la pelicula clickeada es ", idPelicula);
 
                             const urlPelicula = `https://api.themoviedb.org/3/movie/${idPelicula}?api_key=${apiKey}`;
 
