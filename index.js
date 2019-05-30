@@ -594,3 +594,12 @@ buscador.addEventListener('keypress', function (event) {
 })
 
 ///////////////////////////////////////////////////FIN BUSCADOR///////////////////////////////////////////
+
+/////////////////////////////////////////HAMBURGUESA/////////////////////////////////////////////////////
+
+const hamburguesa = document.getElementById("hamburguesa");
+const menuhambur = document.getElementById("menu-mobile");
+
+hamburguesa.onclick = function(){
+    menuhambur.classList.toggle("none");
+}
