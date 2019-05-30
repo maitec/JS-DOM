@@ -285,7 +285,6 @@ nav .search .divHamburguesa #hamburguesa {
 
   .desplegar {
     width: 100%;
-    padding: 10px;
     background-color: #fff;
     display: flex;
     flex-direction: row;
