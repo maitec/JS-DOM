@@ -130,7 +130,7 @@ nav .search .divHamburguesa #hamburguesa {
 .contenedor-pelis .movies, .nuevoContenedor .movies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .contenedor-pelis .movies .pelicula, .nuevoContenedor .movies .pelicula {
   text-align: center;
@@ -220,7 +220,7 @@ nav .search .divHamburguesa #hamburguesa {
   padding: 20px;
 }
 .modalWrapper .modalContainer header .poster img {
-  margin-top: 2em;
+  margin-top: 3em;
   max-width: 100%;
   height: auto;
 }
@@ -268,7 +268,7 @@ nav .search .divHamburguesa #hamburguesa {
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .ocultarEnResponsive {
     display: none;
   }
@@ -301,6 +301,11 @@ nav .search .divHamburguesa #hamburguesa {
 
   .movies.pelicula {
     margin: 0.3em;
+  }
+
+  .modalWrapper .modalContainer {
+    width: 100%;
+    margin: 0;
   }
 }
 

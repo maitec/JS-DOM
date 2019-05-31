@@ -15,6 +15,11 @@ const top_rated = document.querySelector('#top-rated');
 const upcoming = document.querySelector('#upcoming');
 const now_playing = document.querySelector('#now-playing');
 
+const popularMobile = document.querySelector('#popularMobile');
+const top_ratedMobile = document.querySelector('#top-ratedMobile');
+const upcomingMobile = document.querySelector('#upcomingMobile');
+const now_playingMobile = document.querySelector('#now-playingMobile');
+
 const viewAllPopular = document.getElementById('allPopular');
 const viewAllRated = document.getElementById('allRated');
 const viewAllUpcoming = document.getElementById('allUpcoming');
@@ -34,6 +39,13 @@ popular.onclick = () => {
     titulo = "Popular Movies";
     traerPeliculas(url)
 }
+popularMobile.onclick = () => {
+    click = "popular";
+    url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`;
+    titulo = "Popular Movies";
+    menuhambur.classList.toggle("none");
+    traerPeliculas(url)
+}
 viewAllPopular.onclick = () => {
     click = "popular";
     url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${paginaActual}`;
@@ -44,6 +56,13 @@ top_rated.onclick = () => {
     click = "top_rated";
     url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${paginaActual}`;
     titulo = "Top Rated Movies";
+    traerPeliculas(url)
+}
+top_ratedMobile.onclick = () => {
+    click = "top_rated";
+    url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${paginaActual}`;
+    titulo = "Top Rated Movies";
+    menuhambur.classList.toggle("none");
     traerPeliculas(url)
 }
 viewAllRated.onclick = () => {
@@ -58,6 +77,13 @@ upcoming.onclick = () => {
     titulo = "Upcoming Movies";
     traerPeliculas(url)
 }
+upcomingMobile.onclick = () => {
+    click = "upcoming";
+    url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${paginaActual}`;
+    titulo = "Upcoming Movies";
+    menuhambur.classList.toggle("none");
+    traerPeliculas(url)
+}
 viewAllUpcoming.onclick = () => {
     click = "upcoming";
     url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&page=${paginaActual}`;
@@ -68,6 +94,13 @@ now_playing.onclick = () => {
     click = "now_playing";
     url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${paginaActual}`;
     titulo = "Now Playing Movies";
+    traerPeliculas(url)
+}
+now_playingMobile.onclick = () => {
+    click = "now_playing";
+    url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${paginaActual}`;
+    titulo = "Now Playing Movies";
+    menuhambur.classList.toggle("none");
     traerPeliculas(url)
 }
 viewAllPlaying.onclick = () => {
@@ -180,6 +213,7 @@ const traerPeliculas = (url) => {
                                     modal.classList.add("none");
                                     document.querySelector('body').style.overflow = 'visible';
                                 }
+                                
                             })
                     }
                 }
@@ -603,3 +637,12 @@ const menuhambur = document.getElementById("menu-mobile");
 hamburguesa.onclick = function(){
     menuhambur.classList.toggle("none");
 }
+
+document.body.addEventListener('click', function (e) {
+    
+    if(e.target.id == "modalWrapper"){
+        modal.classList.remove("modalWrapper");
+        modal.classList.add("none");
+        document.querySelector('body').style.overflow = 'visible';
+    }
+})

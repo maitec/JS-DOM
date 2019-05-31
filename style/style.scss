@@ -129,7 +129,7 @@ nav{
     .movies{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
         .pelicula{
             text-align: center;
             width: 200px;
@@ -215,7 +215,7 @@ nav{
                 width: 40%;
                 padding: 20px;
                 img{
-                    margin-top: 2em;
+                    margin-top: 3em;
                     max-width: 100%;//si el div contenedor mide X px, la imagen va a medir como maximo esa medida. no sobrepasa la medida
                     height: auto;
                 }
@@ -267,7 +267,7 @@ nav{
     display: none;
 }
 
-@media (max-width: 600px){
+@media (max-width: 650px){
 
     .ocultarEnResponsive{
         display: none;
@@ -296,5 +296,9 @@ nav{
     }
     .movies.pelicula{
         margin: 0.3em;
+    }
+    .modalWrapper .modalContainer{
+        width: 100%;
+        margin: 0;
     }
 }
